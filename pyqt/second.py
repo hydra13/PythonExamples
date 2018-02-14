@@ -16,12 +16,14 @@ class CounterWidget(QtWidgets.QWidget):
 		self.setWindowTitle("Counter")
 		self.resize(300, 400)
 
+		# Create and configure label
 		self.lDigit = QtWidgets.QLabel("0")
 		font = self.lDigit.font()
 		font.setPixelSize(40)
 		self.lDigit.setFont(font)
 		self.lDigit.setAlignment(QtCore.Qt.AlignCenter)
 
+		# Create and configure buttons
 		font.setPixelSize(16)
 		font.setBold(True)
 		self.pbPlus = QtWidgets.QPushButton("+")
@@ -31,6 +33,7 @@ class CounterWidget(QtWidgets.QWidget):
 		self.pbMinus.setFont(font)
 		self.pbExit.setFont(font)
 
+		# Init connections
 		self.pbPlus.clicked.connect(self.onPlusClicked)
 		self.pbMinus.clicked.connect(self.onMinusClicked)
 		self.pbExit.clicked.connect(QtWidgets.qApp.quit)
@@ -55,8 +58,8 @@ class CounterWidget(QtWidgets.QWidget):
 
 
 def Main():
-	# Create main widget
 	app = QtWidgets.QApplication(sys.argv)
+	# Create main widget
 	window = CounterWidget()
 	window.show()
 	sys.exit(app.exec_())
